@@ -1,5 +1,3 @@
-import edu.princeton.cs.algs4.*;
-
 /* Exercicio 1.5.14 - Bulging Squares 
  * disponivel em http://introcs.cs.princeton.edu/java/15inout/
  * Nome: Gabriel de Russo e Carmo
