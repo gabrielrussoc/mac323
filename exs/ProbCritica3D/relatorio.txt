@@ -1,0 +1,20 @@
+Relatorio do exercicio Probabilidade Critica 3D
+Nome: Gabriel de Russo e Carmo
+No USP: 9298041
+Data: 15/03/2016
+
+Como a função é monótona, é possível procurar os valores por meio de uma busca
+binária. Como os valores da função são calculados por força bruta, existe a possibilidade
+dos valores não serem monótonos e a busca tomar decisões erradas, prejudicando o resultado.
+
+Para garantir que a função seja a mais monótona possível, precisamos de altos valores de M, pois
+dessa forma teremos muitas simulações e nos aproximamos do valor real da função. Para valores pequenos
+de M (< 1000), os resultados não são muito consistentes e variam bastante por conta da falsa monotonia.
+
+Sobre os valores de N, os maiores testes que consegui rodar devido a limitação de memória do Java apontaram
+uma probabilidade critica proxima de 0.32. Entretanto, esse número é maior para menores valores de N e vai decrescendo
+conforme N cresce.
+
+Os maiores valores testados (e foram bem custosos) foram pra N = 100 e M = 1000, resultado numa probabilidade critica
+de 0.3133. Esse teste demorou aproximadamente 16 minutos e exigiu que mais memoria fosse alocada para a pilha.
+
