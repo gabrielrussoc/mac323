@@ -1,3 +1,9 @@
+/* Exercicio 3.2.47 - Random walker
+ * disponivel em http://introcs.cs.princeton.edu/java/32class/
+ * Nome: Gabriel de Russo e Carmo
+ * N USP: 9298041
+ * Data: 15/03/2016
+ * OBS: Compilado com 'javac-algs4' */
 import edu.princeton.cs.algs4.*;
 
 public class RandomWalker {
