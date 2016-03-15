@@ -1,0 +1,33 @@
+<html>
+    <style>
+        body {
+            text-align: center;
+            font-family: "Verdana";
+        }
+        .container {
+            background-color: #cccccc;
+            padding: 10px;
+        }
+        .obs {
+            font-style: italic;
+        }
+    </style>
+    <head>
+        <title>Relatório</title>
+    </head>
+    <body>
+        <h2>Relatório sobre RandomWalker</h2>
+        <h4>Algumas considerações sobre o exercício 3.2.47</h4> 
+        <p class="obs">Disponível em <a href="http://introcs.cs.princeton.edu/java/32class/">http://introcs.cs.princeton.edu/java/32class/</a></p>
+        <div class="container">
+            <p>Primeiramente, vamos analisar o que ocorre com a distância máxima média dos
+            RandomWalkers para vários valores de N:</p>
+            <img src="img/averagexsqrt.png" alt="grafico"></img>
+            <p class="obs">Os valores computados são uma média das distâncias máximas obtidas em 1000 simulações para
+            cada valor de N.</p>
+            <p>Como se pode observar, as distâncias máximas médias crescem de forma proporcional a raiz quadrada 
+            da quantidade de passos. Com algum trabalho manual, pude notar que o crescimento é muito próximo a
+            1,5 * raiz(N).</p>
+        </div>
+    </body>
+</html>
