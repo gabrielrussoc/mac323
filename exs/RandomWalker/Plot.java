@@ -4,6 +4,8 @@
  * N USP: 9298041
  * Data: 15/03/2016
  * OBS: Compilado com 'javac-algs4' */
+
+/* Essa classe so foi usada para a criacao de uma das imagens */
 public class Plot {
     
     /* Devolve a media da distancia maxima de um walker para m simulacoes, cada
