@@ -11,6 +11,14 @@
         .obs {
             font-style: italic;
         }
+        .half {
+            width: 50%;
+            float: left;
+        }
+        .clearfix {
+            overflow: auto;
+        }
+
     </style>
     <head>
         <title>Relatório</title>
@@ -18,16 +26,49 @@
     <body>
         <h2>Relatório sobre RandomWalker</h2>
         <h4>Algumas considerações sobre o exercício 3.2.47</h4> 
-        <p class="obs">Disponível em <a href="http://introcs.cs.princeton.edu/java/32class/">http://introcs.cs.princeton.edu/java/32class/</a></p>
+        <p class="obs">Disponível em <a target ="_blank" href="http://introcs.cs.princeton.edu/java/32class/">http://introcs.cs.princeton.edu/java/32class/</a></p>
         <div class="container">
             <p>Primeiramente, vamos analisar o que ocorre com a distância máxima média dos
             RandomWalkers para vários valores de N:</p>
-            <img src="img/averagexsqrt.png" alt="grafico"></img>
+            <img src="img/averagexsqrt.png" alt="grafico">
             <p class="obs">Os valores computados são uma média das distâncias máximas obtidas em 1000 simulações para
             cada valor de N.</p>
             <p>Como se pode observar, as distâncias máximas médias crescem de forma proporcional a raiz quadrada 
             da quantidade de passos. Com algum trabalho manual, pude notar que o crescimento é muito próximo a
             1,5 * raiz(N).</p>
+            <h3> Algumas imagens interessantes </h3>
+            <p> Aqui vão os resultados visuais de alguns testes: </p>
+            <div class="clearfix"> 
+                <div class="half"> 
+                    <img src="img/100s-1000w.png">
+                    <p class="obs">100 passos e 1000 walkers</p>
+                </div>
+                <div class="half"> 
+                    <img src="img/1000s-100w.png">
+                    <p class="obs">1000 passos e 100 walkers</p>
+                </div>
+                <div class="half"> 
+                    <img src="img/1000s-1000w.png">
+                    <p class="obs">1000 passos e 1000 walkers</p>
+                </div>
+                <div class="half"> 
+                    <div class="half"> 
+                        <img src="img/pikachu.png">
+                        <p class="obs">Pikachu</p>
+                    </div>
+                    <div class="half"> 
+                        <img src="img/hipopotamo.png">
+                        <p class="obs">Hipopótamo</p>
+                    </div>
+                </div>
+                <p class="obs"> Infelizmente não tenho os dados das simulações que geraram essas últimas imagens legais :(</p>
+            </div>
+        </div>
+        <div class="container obs">
+            <p> Gabriel de Russo e Carmo<br>
+            No USP: 9298041<br> 
+            15/03/2016 </p>
+
         </div>
     </body>
 </html>
