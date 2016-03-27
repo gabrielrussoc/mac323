@@ -1,0 +1,17 @@
+Nome: Gabriel de Russo e Carmo
+No USP: 9298041
+Data: 21/03/2016
+Exercício: 1.3.36 - Random Iterator (Algs 4)
+
+Vamos provar que o iterador está correto, ou seja, que gera todas as permutações
+de maneira equiprovável.
+
+Definimos A = {1,2,3...,N}. Nosso iterador pega um elemento aleatório P de forma uniforme
+do conjunto A e depois repete o processo em A = A - {P}. O processo acaba quando A fica vazio.
+
+Dessa forma, sabemos que a probabilidade de qualquer um dos elementos estar na primeira posição da
+permutação é de 1/N. Dado que temos o primeiro elemento, a probabilidade de qualquer um dos outros estar
+na segunda posição é de 1/(N-1) e assim sucessivamente. Ou seja, uma sequência qualquer tem probabilidade
+p = 1/N * 1/(N-1) * ... * 1/1 = 1/N!
+
+
