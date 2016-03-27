@@ -6,12 +6,16 @@ Exercício: 1.3.36 - Random Iterator (Algs 4)
 Vamos provar que o iterador está correto, ou seja, que gera todas as permutações
 de maneira equiprovável.
 
-Definimos A = {1,2,3...,N}. Nosso iterador pega um elemento aleatório P de forma uniforme
-do conjunto A e depois repete o processo em A = A - {P}. O processo acaba quando A fica vazio.
+Inicializamos A = {1,2,3...,N}. Nosso iterador pega um elemento aleatório X de forma uniforme
+do conjunto A e depois repete o processo em A = A - {X}. O processo acaba quando A fica vazio.
 
-Dessa forma, sabemos que a probabilidade de qualquer um dos elementos estar na primeira posição da
-permutação é de 1/N. Dado que temos o primeiro elemento, a probabilidade de qualquer um dos outros estar
-na segunda posição é de 1/(N-1) e assim sucessivamente. Ou seja, uma sequência qualquer tem probabilidade
-p = 1/N * 1/(N-1) * ... * 1/1 = 1/N!
-
+Seja P = (p1,p2,...,pn) uma permutação de 1,2,...,N. 
+Pela teoria de probabilidade condicional, sabemos que para dois eventos R e S temos P(R|S)*P(S) = P(R & S).
+Sabemos que a probabilidade do primeiro elemento retirado ser p1 é 1/N. A probabilidade do segundo elemento
+retirado ser p2 dado que já retiramos p1 é 1/(N-1), afinal retiramos de modo uniforme um elemento de um conjunto
+com N-1 elementos. Observando que a probabilidade de de um elemento qualquer ser retirado é 1/|A|, temos nesse caso
+que P(primeiro ser p1 e segundo ser p2) = 1/N-1 * 1/N.
+Vamos supor que a probabilidade dos i-ésimos primeiros elementos serem p1,..,pi é p = 1/N * 1/(N-1) * .. * 1/(N-i+1).
+Logo, P(i-ésimos corretos e i+1-ésimo correto) = p * 1/(N-i). Concluímos então que P(todos corretos) = 1/N!, ou seja,
+todas as permutação são geradas de maneira uniforme.
 
