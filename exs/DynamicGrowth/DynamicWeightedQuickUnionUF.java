@@ -22,7 +22,7 @@ public class DynamicWeightedQuickUnionUF {
 
     /* Devolve o identificador de p no UF.
      * O metodo DEVE ser usado antes de se conectar quaisquer elementos.
-     * Com isso, sendo M o elemento máximo, temos tempo proporcional a log M 
+     * Com isso, sendo M o elemento máximo, temos tempo proporcional a M 
      * nas operações relacionadas com rediomensionamento da estrutura e memoria
      * proporcional a M.
      * Pessoalmente, acredito que seria muito mais eficiente se esse metodo fosse
