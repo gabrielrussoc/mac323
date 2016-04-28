@@ -1,0 +1,24 @@
+Nome: Gabriel de Russo e Carmo
+N USP: 9298041
+Data: 27/04/2016 
+
+Relatorio do problema da conexidade 2D
+
+Na minha solução do problema utilizei a técnica de gridding, isto é, particionei o quadrado
+num plano de 1/(d^2) quadrados de mesma área (d é a distância dada na entrada). Dado um ponto
+P do quadrado, é fácil calcular qual célula do grid contém P. Dessa forma, para cada ponto da
+entrada é possível calcular sua célula correspondente e verificar se nessa ou nas 8 adjacentes
+quais pontos estão suficientemente próximos. Isso vale pois toda célula é um quadrado de lado d.
+Depois inserimos o ponto na célula para cálculos futuros.
+
+A implementação é bem simples. Temos uma matriz de (teto(1/d) + 2) x (teto(1/d) + 2) que representa nosso
+grid (para simplificação de código, a matriz tem moldura). Cada elemento da matriz é um ArrayList, que
+no caso guarda vários Point2Di. A classe Point2Di é simplesmente a classe Point2D do livro Algs4 com um
+atributo a mais, visando identificar cada ponto por um inteiro. Se a distância de dois pontos é menor ou
+igual a d, unimos numa estrutura de união disjunta de conjuntos (no caso, UF de Algs4) os pontos. Se essa
+estrutura termina com apenas um conjunto (inicialmente cada ponto está num conjunto unitário), temos uma
+configuração d-conexa. Se termina com mais de uma, não.
+
+No pior caso, ainda temos uma solução quadrática no número de pontos. Entretanto, com algum conhecimento
+estatístico, é fácil ver que a complexidade média é muito melhor (assunto do próximo exercício).
+ 
