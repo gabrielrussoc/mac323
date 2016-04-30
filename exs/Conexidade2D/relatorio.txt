@@ -21,7 +21,7 @@ configuração d-conexa. Se termina com mais de uma, não.
 
 No pior caso, ainda temos uma solução quadrática no número de pontos. Entretanto, se considerarmos que os
 n pontos são aleatórios, temos uma complexidade muito melhor. Observe que para um ponto aleatório, a probabilidade
-dele cair numa célula qualquer é 1/(d^2). Desse modo, o valor esperado de pontos por célula é de n/(1/(d^2)) = n * (d^2).
+dele cair numa célula qualquer é 1/1/(d^2) = d^2. Desse modo, o valor esperado de pontos por célula é de n * (d^2).
 Como temos n pontos e olhamos para 9 células cujas esperamos realizar um trabalho de n * (d^2), temos que a complexidade
-média é de O(n^2 * d^2).
+média é de O(n^2 * d^2 + 1/d^2). O segundo termo surge pois temos que construir o grid.
  
