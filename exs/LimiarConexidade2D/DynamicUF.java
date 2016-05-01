@@ -1,7 +1,7 @@
 /* Limiar da conexidade 2D
  * Nome: Gabriel de Russo e Carmo
  * N USP: 9298041
- * Data: 27/04/2016
+ * Data: 30/04/2016
  * OBS: Compilado com 'javac-algs4' */
 import edu.princeton.cs.algs4.*;
 
@@ -23,45 +23,33 @@ public class DynamicUF {
         P = comp = 0;
     }
 
-    /* Reseta o UF */
-    public void reset () {
-        N = 16;
-        id = new int[N];
-        sz = new int[N];
+    /* Dobra a capacidade do UF */
+    private void resize () {
+        int[] nid, nsz;
+        nid = new int[2*N];
+        nsz = new int[2*N];
         for (int i = 0; i < N; i++) {
-            id[i] = i;
-            sz[i] = 1;
+            nid[i] = id[i];
+            nsz[i] = sz[i];
         }
-        P = comp = 0;
+        for (int i = N; i < 2*N; i++) {
+            nid[i] = i;
+            nsz[i] = 1;
+        }
+        N = 2*N;
+        id = nid;
+        sz = nsz;
     }
 
-    /* Redimensiona o UF para comportar p */
-    private void resize (int p) {
-        while (p >= N) {
-            int[] nid, nsz;
-            nid = new int[2*N];
-            nsz = new int[2*N];
-            for (int i = 0; i < N; i++) {
-                nid[i] = id[i];
-                nsz[i] = sz[i];
-            }
-            for (int i = N; i < 2*N; i++) {
-                nid[i] = i;
-                nsz[i] = 1;
-            }
-            N = 2*N;
-            id = nid;
-            sz = nsz;
-        }
-        if (P < p + 1) {
-            comp += p + 1 - P;
-            P = p + 1;
-        }
+    /* Devolve o identificador de um novo elemento do UF */
+    public int newSite () {
+        if (P == N) resize();
+        comp++;
+        return P++;
     }
 
     /* Devolve o representante da componente de p. */
     public int find (int p) {
-        resize (p);
         if (id[p] == p) return p;
         return id[p] = find (id[p]);   
     }
