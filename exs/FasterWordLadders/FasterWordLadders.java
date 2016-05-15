@@ -126,5 +126,6 @@ public class FasterWordLadders {
                     StdOut.println (index[v]);
             } else StdOut.println ("NOT CONNECTED");
         } 
+        in.close ();
     }
 }
