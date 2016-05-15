@@ -1,0 +1,20 @@
+Exercicio 4.2.33 - Number of a paths in a DAG (Algs 4)
+disponivel em http://algs4.cs.princeton.edu/42digraph/
+Nome: Gabriel de Russo e Carmo
+N USP: 9298041
+Data: 15/05/2016
+OBS: Compilado com 'javac-algs4'
+
+Relatorio sobre o caso bonus
+
+Minha solução é bastante direta: programação dinâmica na ordenação topológica. Processo os vértices na ordem
+contrária da ordenação topológica e calculo a quantidade de caminhos do vértice atual para o destino com base
+nas minhas arestas e consequentemente nas respostas dos vértices que enxergo. Funciona pois a ordem processada
+garante que os vértices necessários ja terão sido calculados. Lembrando que a quantidade de caminhos de um vértice
+para ele mesmo é 1 (o caminho vazio).
+
+O pequeno problema do caso bônus acontece pois toda palavra de tamanho n > 1 tem um arco para toda palavra de tamanho n-1,
+fazendo com que a resposta cresça exponencialmente. A complexidade da solução ainda é a mesma (linear no grafo), mas por motivos de overflow
+uma variável nativa do Java não comporta a resposta. Felizmente, existe a classe BigInteger que faz contas com números arbitrariamente
+grandes (claro que não em tempo constante, mas como fazemos apenas somas fica bem rápido). Para resolver o incômodo, apenas troquei
+a resposta para um BigInteger e todos foram felizes para sempre.
