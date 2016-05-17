@@ -8,11 +8,11 @@ import java.util.*;
 import edu.princeton.cs.algs4.*;
 
 public class CoreVertices {
-    private static List<Integer>[] adj;
+    private static int[] to, nx, head;
     private static int n, m;
     private static int[] comp, stack, low, d, deg;
     private static boolean[] vis, instack;
-    private static int ps, cs, time;
+    private static int ps, cs, time, es;
 
     /* Devolve o minimo entre dois inteiros a,b */
     private static int min (int a, int b) {
@@ -25,7 +25,8 @@ public class CoreVertices {
         low[u] = d[u] = time++;
         stack[ps++] = u;
         instack[u] = true;
-        for (int v : adj[u]) {
+        for (int e = head[u]; e != -1; e = nx[e]) {
+            int v = to[e];
             if (!vis[v]) {
                 dfs(v);
                 low[u] = min (low[u], low[v]);
@@ -47,22 +48,24 @@ public class CoreVertices {
         m = StdIn.readInt ();
         
         /* Tem pouca coisa pra inicializar */
-        adj = (ArrayList<Integer>[]) new ArrayList[n];
+        head = new int[n];
+        to =  new int[m];
+        nx = new int[m];
         stack = new int[n];
         instack = new boolean[n];
         vis = new boolean[n];
         comp = new int[n];
         low = new int[n];
         d = new int[n];
-        time = cs = ps = 0;
-        for (int i = 0; i < n; i++) adj[i] = new ArrayList<Integer> ();
+        time = cs = ps = es = 0;
+        for (int i = 0; i < n; i++) head[i] = -1;
 
         /* Montagem do grafo */
         for (int i = 0; i < m; i++) {
             int u, v;
             u = StdIn.readInt ();
             v = StdIn.readInt ();
-            adj[u].add (v);
+            to[es] = v; nx[es] = head[u]; head[u] = es++;
         }
 
         /* Calculo das componentes */
@@ -71,9 +74,11 @@ public class CoreVertices {
         
         /* Grau de entrada das componentes */
         for (int u = 0; u < n; u++)
-            for (int v : adj[u])
+            for (int e = head[u]; e != -1; e = nx[e]) {
+                int v = to[e];
                 if (comp[u] != comp[v])
                     deg[comp[v]]++;
+            }
 
         /* Se apenas uma componente tem grau de entrada 0, todos os vertices dela sao core */
         int zero = 0;
