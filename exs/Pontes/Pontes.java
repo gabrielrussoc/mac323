@@ -18,7 +18,18 @@ public class Pontes {
         return a < b ? a : b;
     }
 
-    /* Algoritmo para detecçao das pontes */
+    /* Algoritmo para detecçao das pontes 
+     * A ideia é pegar uma árvore geradora do grafo (no caso, a árvore 
+     * da dfs mesmo) e concluir as coisas com base nos nós mais altos que cada nó consegue
+     * acessar. Teremos basicamente 2 tipos de arestas: as arestas da árvore (tree edges) e
+     * as arestas de volta (back edges). Para cada nó, vamos guardar seu tempo de descoberta no vetor d[] e
+     * qual o nó mais "antigo" que ele consegue acessar no vetor low[], considerando apenas sua subárvore
+     * e uma backedge. Seja u um nó da ávore. Inicialmente o nó mais "antigo" que u alcança é si
+     * próprio. Para cada v não visitado na sua lista de adjacência, disparamos a dfs e fazemos
+     * que low[u] = min(low[v], low[v]), pois podemos descer de u até. Caso v já esteja visitado e não seja
+     * o pai de u, temos uma backedge, portanto low[u] = min(low[u], d[v]), pois podemos pegar essa backedge para
+     * v. Uma aresta u-v da árvore de dfs é ponte se não há como o vértice v alcançar u além desta. Isso se traduz
+     * para low[v] > d[u], pois o nó mais antigo que v alcança é mais profundo que u.*/
     private static void dfs (int u, int p) {
         vis[u] = true;
         low[u] = d[u] = time++;
