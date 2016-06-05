@@ -1,3 +1,8 @@
+/* Exercicio 5.2.8 - Ordered operations for tries (Algs 4)
+ * Nome: Gabriel de Russo e Carmo
+ * N USP: 9298041
+ * Data: 05/06/2016
+ * OBS: Compilado com 'javac-algs4' */
 import edu.princeton.cs.algs4.*;
 
 /* Code from Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne. */
@@ -340,6 +345,8 @@ public class TrieST<Value> {
             StdOut.println ("Floor de " + floor_data[i] + " = " + t.floor (floor_data[i]));
         
         TrieST<Integer> tt = new TrieST<Integer> ();
+        StdOut.println ("Teste na entrada padrão. Uso: ");
+        StdOut.println ("[ceil/floor/rank/select/put/delete] [key/value]");
         while (!StdIn.isEmpty()) {
             String op, w;
             op = StdIn.readString ();
@@ -351,7 +358,6 @@ public class TrieST<Value> {
             if (op.equals("put")) tt.put (w, 1);
             if (op.equals("delete")) tt.delete(w);
         }
-        
 
         /* Strings aleatorias
         int n = 150;
