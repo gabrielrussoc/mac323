@@ -25,7 +25,6 @@ public class GreatBattleForTheKingdom {
 
         public int compareTo (Vertex o) {
             int x = this.dist - o.dist;
-            x /= x;
             return x;
         }
     }
