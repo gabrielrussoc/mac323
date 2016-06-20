@@ -1,0 +1,11 @@
+Exercício 5.3.32 - Unique substrings (Algs4)
+Nome: Gabriel de Russo e Carmo
+N USP: 9298041
+Data: 19/06/2016
+
+Relatório
+
+O desempenho desta versão foi levemente superior ao da versão anterior (cerca de 10%). Isso se dá pois não
+gastamos tempo proporcional ao tamanho da palavra nas inserções (como na Trie) devido ao uso do rolling hash.
+Entretanto, o rolling hash causa algum erro pequeno devido a colisões (na casa das centenas para números maiores
+que 1 milhão). Veja relatório da tarefa anterior equivalente para mais detalhes.
