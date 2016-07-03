@@ -10,6 +10,13 @@ import java.util.TreeSet;
 import edu.princeton.cs.algs4.*;
 
 public class LinkFinderNEW { 
+    
+    /* Devolve true se a string s tem prefixo "mailto" */
+    private static boolean is_mailto (String s) {
+        String mt = "mailto";
+        if (s.length () < mt.length ()) return false;
+        return s.substring(0, mt.length()).equals(mt);
+    }
 
     /* Devolve true se a string s tem prefixo "javascript" */
     private static boolean is_javascript (String s) {
@@ -47,7 +54,7 @@ public class LinkFinderNEW {
 
         while (matcher.find()) {
             String foo = matcher.group(1);
-            if (is_javascript(foo) || foo.length () == 0) continue;
+            if (is_javascript(foo) || is_mailto(foo) || foo.length() == 0) continue;
             foo = fix(foo, args[x]);
             if (sorted) ts.add(foo);
             else System.out.println(foo);
